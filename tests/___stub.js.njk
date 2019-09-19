@@ -1,0 +1,13 @@
+import {{ucFirst(operation_name)}} from '../src/tests/{{ucFirst(operation_name)}}'
+
+describe('{{ucFirst(operation_name)}}', () => {
+  {% for op in operations -%}
+    {% for key, path in op.path -%}
+      {% if isValidMethod(key) %}
+  it('Operation ID: {{ path.operationId }}', () => {
+    //
+  })
+      {% endif %}
+    {%- endfor %}
+  {%- endfor %}
+})
