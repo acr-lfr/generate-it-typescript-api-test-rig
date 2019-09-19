@@ -1,0 +1,1 @@
+# openapi-nodegen-typescript-api-test-rig
