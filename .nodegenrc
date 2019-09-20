@@ -1,0 +1,4 @@
+{
+  "nodegenDir": "src/nodegen",
+  "nodegenMockDir": "src/nodegen/__mocks__"
+}

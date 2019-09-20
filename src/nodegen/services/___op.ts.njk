@@ -1,9 +1,9 @@
-import { SetupConfig } from './lib/interfaces/SetupConfig';
-import HttpService from './lib/HttpService';
-import { HttpMethodEnum } from './lib/enums/HttpMethodEnum'
+import { SetupConfig } from '../interfaces/SetupConfig';
+import HttpService from '../../lib/HttpService';
+import { HttpMethodEnum } from '../enums/HttpMethodEnum'
 {% set interfaces = importInterfaces(operations) %}
 {% for interface in interfaces -%}
-import {{ interface }} from './lib/interfaces{{ interface }}';
+import {{ interface }} from '../interfaces{{ interface }}';
 {%- endfor %}
 
 export default class {{ operation_name | capitalize }}Service extends HttpService {

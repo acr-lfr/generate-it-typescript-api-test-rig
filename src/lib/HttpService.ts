@@ -1,6 +1,6 @@
 import request from 'request-promise';
-import { SetupConfig } from './interfaces/SetupConfig';
-import { RequestObject } from './interfaces/RequestObject';
+import { SetupConfig } from '../nodegen/interfaces/SetupConfig';
+import { RequestObject } from '../nodegen/interfaces/RequestObject';
 
 export default class HttpService {
   public config: SetupConfig;
