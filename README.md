@@ -1,6 +1,6 @@
-#openapi-nodegen-typescript-api-test-rig
+# openapi-nodegen-typescript-api-test-rig
 
-Beta release
+**Beta release**
 
 ## Setup
 - In a new directory `run npm init`
@@ -81,3 +81,5 @@ When the swagger is evolved to a new version, add the new version to your swagge
 
 Re-running the nodegen will not overwrite any of the tests, but it will overwrite any changes in the nodegen folder.. in otherwords all the service classes and interface files will be updated.
 
+## Known issues
+The 1st generation will overwrite `swagger/api_1.0.0.yml` with this packaged one.
