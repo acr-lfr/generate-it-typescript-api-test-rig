@@ -2,6 +2,11 @@
 
 **Beta release**
 
+Using [openapi-nodegen](https://www.npmjs.com/package/openapi-nodegen) this set of templates will auto-generate a fully working API test rig based on a single swagger file.
+
+The tests use [TS-Jest](https://www.npmjs.com/package/ts-jest), a typescript port of Jest.
+
+
 ## Setup
 - In a new directory `run npm init`
 - Add to the dev dependencies [openapi-nodegen](https://www.npmjs.com/package/openapi-nodegen)
@@ -21,6 +26,11 @@ Ensure you correct the name of the swagger file, the above assumes the swagger f
 _**Tip**: you can improve this by referencing the file from an npm package_
 
 If you just want to get a demo up and running, copy the swagger file from [openapi-nodegen-typescript-api-test-rig](https://github.com/acrontum/openapi-nodegen-typescript-api-test-rig.git) to your local folder.
+
+This rig relies on dotenv, this allows for simple local development by easily configuring a .env file instructing the HttpService where to talk to. To get a demo off the ground with the provided swagger file, place a `.env` file containing:
+```
+BASE_URL=http://dummy.restapiexample.com
+```
 
 Run the script from a command line:
 ```
@@ -83,3 +93,6 @@ Re-running the nodegen will not overwrite any of the tests, but it will overwrit
 
 ## Known issues
 The 1st generation will overwrite `swagger/api_1.0.0.yml` with this packaged one.
+It will also copy over this repos README file.
+
+A new ignore feature in the nodegen will fix this issue, until then just be aware.
