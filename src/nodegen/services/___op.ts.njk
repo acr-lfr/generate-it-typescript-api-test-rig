@@ -1,4 +1,4 @@
-import { SetupConfig } from '../interfaces/SetupConfig';
+import request from 'request';
 import HttpService from '../../lib/HttpService';
 import { HttpMethodEnum } from '../enums/HttpMethodEnum'
 {% set interfaces = importInterfaces(operations) %}
@@ -6,19 +6,15 @@ import { HttpMethodEnum } from '../enums/HttpMethodEnum'
 import {{ interface }} from '../interfaces/{{ interface }}';
 {%- endfor %}
 
-export default class {{ operation_name | capitalize }}Service extends HttpService {
-  constructor (setupConfig: SetupConfig) {
-    super(setupConfig);
-  }
-
+class {{ucFirst(operation_name)}}Service extends HttpService {
 {% for op in operations -%}
   {% for method, path in op.path -%}
     {% if isValidMethod(method)%}
   // {{ path.operationId }}
-  public {{ path.operationId }} ({{ pathParamsToDomainParams(path, true) }}): Promise<{{ path['x-response-definitions']['200'] if path['x-response-definitions']['200'] else 'any' }}>{
+  public {{ path.operationId }} ({{ pathParamsToDomainParams(path, true) }}): Promise<request.Response>{
     return this.sendRequest({
       method: HttpMethodEnum.{{ method | upper}},
-      path: '{{op.subresource}}',
+      path: '{{ urlPathJoin(op.path_name)}}',
       {% for requestType, value in path['x-request-definitions'] -%}
         {% if requestType === 'path' %}params: {{ requestType }},
         {% elif requestType === 'query' %}qs: {{ requestType }},
@@ -27,7 +23,11 @@ export default class {{ operation_name | capitalize }}Service extends HttpServic
       {%- endfor %}
     })
   }
+  public {{path.operationId}}ResponseFormat = {{ trimEnd(paramsOutputReducer(path.responses), ',') }}
+
     {% endif %}
   {%- endfor %}
 {%- endfor %}
 }
+
+export default new {{ucFirst(operation_name)}}Service();

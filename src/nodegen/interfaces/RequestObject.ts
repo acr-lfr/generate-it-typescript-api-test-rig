@@ -7,6 +7,4 @@ export interface RequestObject {
   qs?: object
   body?: object
   headers?: object
-  resolveWithFullResponse?: boolean
-  rejectUnauthorized?: boolean
 }

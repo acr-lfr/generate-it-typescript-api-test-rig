@@ -1,0 +1,28 @@
+import {{ ucFirst(operation_name) }}Service from '@/nodegen/services/{{ ucFirst(operation_name) }}Service';
+import objectReduceByMap from 'object-reduce-by-map';
+
+{% for op in operations -%}
+{% for key, path in op.path -%}
+{% if isValidMethod(key) %}
+describe('{{ ucFirst(operation_name) }}Service.{{ path.operationId }}', () => {
+  let response;
+  beforeAll(async () => {
+    response = await {{ ucFirst(operation_name) }}Service.{{ path.operationId }}( /* add params here */);
+  });
+
+  it('Check status code 200', () => {
+    expect(response.statusCode).toBe(200);
+  });
+
+  it('Check body response', (next) => {
+    try {
+      objectReduceByMap(response.body, {{ ucFirst(operation_name) }}Service.{{ path.operationId }}ResponseFormat, { throwErrorOnAlien: true });
+      next();
+    } catch (e) {
+      next(e);
+    }
+  });
+});
+{% endif %}
+{%- endfor %}
+{%- endfor %}

@@ -67,6 +67,8 @@
     "only-arrow-functions": false,
     "prefer-const": true,
     "jsdoc-format": true,
+    "arrow-parens": false,
+    "trailing-comma": false,
     "space-before-function-paren": true
   }
 }

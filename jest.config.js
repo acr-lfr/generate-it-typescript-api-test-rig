@@ -1,4 +1,9 @@
 module.exports = {
+  collectCoverage: true,
+  coverageDirectory: './jest',
+  collectCoverageFrom: [
+    "./src/nodegen/services/*.ts",
+  ],
   moduleFileExtensions: [
     'js',
     'jsx',
@@ -6,6 +11,11 @@ module.exports = {
     'ts',
     'tsx'
   ],
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1'
+  },
+  setupFilesAfterEnv: ['./jest.setup.js'],
+  testURL: 'http://localhost/',
   transform: {
     '^.+\\.tsx?$': 'ts-jest'
   },
@@ -13,14 +23,5 @@ module.exports = {
     '/node_modules/',
     '/build/*'
   ],
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
-  },
-  testURL: 'http://localhost/',
   verbose: true,
-  collectCoverage: true,
-  coverageDirectory: './jest',
-  collectCoverageFrom: [
-    "./lib/**/*.{js,jsx}",
-  ]
 }
