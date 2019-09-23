@@ -8,9 +8,9 @@ The tests use [TS-Jest](https://www.npmjs.com/package/ts-jest), a typescript por
 
 
 ## Setup
-- In a new directory `run npm init`
+- In a new directory run: `npm init`
 - Add to the dev dependencies [openapi-nodegen](https://www.npmjs.com/package/openapi-nodegen)
-  - `npm i --save-dev openapi-nodegen`
+  - run: `npm i --save-dev openapi-nodegen`
 - Add the nodegen generate test rig to the `package.json` scripts object. The following will load a local swagger file `api.1.0.0.yml` and generate the test rig with the given git repository:
   ```
 
@@ -21,7 +21,7 @@ The tests use [TS-Jest](https://www.npmjs.com/package/ts-jest), a typescript por
 
 ## Run it
 Assuming the above setup steps have been successfully completed you can simply run the script you added.
-Ensure you correct the name of the swagger file, the above assumes the swagger file is in a folder named "swagger" and the file named "./api_1.0.0.yml".
+Ensure you correct the name of the swagger file, the above assumes the swagger file is in a folder named "swagger" and the file named "api_1.0.0.yml".
 
 _**Tip**: you can improve this by referencing the file from an npm package_
 
