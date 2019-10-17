@@ -2,7 +2,7 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: './jest',
   collectCoverageFrom: [
-    "./src/nodegen/services/*.ts",
+    "./api-tests/nodegen/services/*.ts",
   ],
   moduleFileExtensions: [
     'js',
@@ -12,7 +12,7 @@ module.exports = {
     'tsx'
   ],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/api-tests/$1'
   },
   setupFilesAfterEnv: ['./jest.setup.js'],
   testURL: 'http://localhost/',
