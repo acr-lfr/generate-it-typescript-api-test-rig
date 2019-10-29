@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "baseUrl": "./",
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "target": "ES2017",
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "resolveJsonModule": true,
     "moduleResolution": "node",
     "outDir": "build",
-    "baseUrl": "./",
     "sourceMap": true,
-    "resolveJsonModule": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "target": "ES2017",
+    "types": [
+      "node",
+      "jest"
+    ],
     "paths": {
       "@/*": [
         "src/*"
