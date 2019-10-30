@@ -1,7 +1,7 @@
 {
   "extends": "tslint:recommended",
   "linterOptions": {
-    "exclude": ["src/nodegen/**/*"]
+    "exclude": ["api-tests/nodegen/**/*"]
   },
   "rules": {
     "class-name": true,
