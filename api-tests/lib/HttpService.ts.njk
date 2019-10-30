@@ -14,7 +14,6 @@ export default class HttpService {
     requestObject.headers = requestObject.headers || {};
     const URL = urlJoin(
             config.baseUrl,
-            '/api/v1',
             HttpService.injectParamsToPath(
                     requestObject.params,
                     requestObject.path,
