@@ -19,6 +19,18 @@ The tests use [TS-Jest](https://www.npmjs.com/package/ts-jest), a typescript por
 
   ```
 
+## Older versions of openapi-nodegen
+
+Reference the tag:
+
+  ```
+
+    "scripts": {
+        "generate:nodegen:test-rig": "openapi-nodegen ./swagger/api_1.0.0.yml -t https://github.com/acrontum/openapi-nodegen-typescript-api-test-rig.git#3.0.6",
+
+  ```
+
+
 ## Run it
 Assuming the above setup steps have been successfully completed you can simply run the script you added.
 Ensure you correct the name of the swagger file, the above assumes the swagger file is in a folder named "swagger" and the file named "api_1.0.0.yml".
