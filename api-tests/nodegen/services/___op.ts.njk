@@ -3,7 +3,7 @@ import HttpService from '../../lib/HttpService';
 import { HttpMethodEnum } from '../enums/HttpMethodEnum'
 {% set interfaces = importInterfaces(operations) %}
 {% for interface in interfaces -%}
-import {{ interface }} from '../interfaces/{{ interface }}';
+import { {{ interface }} } from '../interfaces/{{ interface }}';
 {%- endfor %}
 
 class {{ucFirst(operation_name)}}Service extends HttpService {
