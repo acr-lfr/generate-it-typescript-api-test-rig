@@ -23,7 +23,7 @@ class {{ucFirst(operation_name)}}Service extends HttpService {
       {%- endfor %}
     })
   }
-  public {{path.operationId}}ResponseFormat = {{ trimEnd(paramsOutputReducer(path.responses), ',') }}
+  public {{path.operationId}}ResponseFormat = {{ _.trimEnd(paramsOutputReducer(path.responses), ',') }}
 
     {% endif %}
   {%- endfor %}
