@@ -19,6 +19,20 @@ The tests use [TS-Jest](https://www.npmjs.com/package/ts-jest), a typescript por
 
   ```
 
+#### Setup as e2e within existing api
+A nice way to run things is have a single API for the api files, but also contain the e2e tests for the said api within.
+This can be done by simply running nodegen to a sub-folder e2e within the existing api which would result in 2 nodegen scripts looking a little like this:
+```json
+{
+  "scripts": {
+    "generate:nodegen": "openapi-nodegen ../ms_image_server_write_d/build/api_1.0.0.yml -t https://github.com/acrontum/openapi-nodegen-typescript-server.git",
+    "generate:nodegen:e2e": "openapi-nodegen ../ms_image_server_write_d/build/api_1.0.0.yml -t https://github.com/acrontum/openapi-nodegen-typescript-api-test-rig.git -o ./e2e"
+  }
+}
+```
+The 1st script will generate the typescript server. The second will generate the e2e api testing within the sub folder of `./e2e`
+
+
 ## Older versions of openapi-nodegen
 
 Reference the tag:
@@ -102,9 +116,3 @@ Assuming the developers are adhering to [documentation driven development](https
 When the swagger is evolved to a new version, add the new version to your swagger folder and adjust your package json generation script.
 
 Re-running the nodegen will not overwrite any of the tests, but it will overwrite any changes in the nodegen folder.. in otherwords all the service classes and interface files will be updated.
-
-## Known issues
-The 1st generation will overwrite `swagger/api_1.0.0.yml` with this packaged one.
-It will also copy over this repos README file.
-
-A new ignore feature in the nodegen will fix this issue, until then just be aware.
