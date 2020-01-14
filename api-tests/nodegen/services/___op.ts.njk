@@ -18,6 +18,7 @@ class {{ucFirst(operation_name)}}Service extends HttpService {
       {% for requestType, value in path['x-request-definitions'] -%}
         {% if requestType === 'path' %}params: {{ requestType }},
         {% elif requestType === 'query' %}qs: {{ requestType }},
+        {% elif requestType === 'formData' %}formData: files,
         {% else %}{{ requestType }},
         {% endif %}
       {%- endfor %}
