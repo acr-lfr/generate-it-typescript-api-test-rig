@@ -23,6 +23,7 @@
     "max-classes-per-file": false,
     "no-var-requires": false,
     "no-var-keyword": true,
+    "ordered-imports": false,
     "quotemark": [
       true,
       "single",
